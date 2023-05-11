@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ea1cdce-a80a-48cb-bcd9-104dba4f541c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Images/arrow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/playBG.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/startBG.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7ea1cdce-a80a-48cb-bcd9-104dba4f541c" name="Changes" comment="In process">
+      <change afterPath="$PROJECT_DIR$/Images/blue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/endBG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/green.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/purple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/red.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Images/yellow.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Arrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Arrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Arrow.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bubble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bubble.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BubblePop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BubblePop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BubblePopViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BubblePopViewer.java" afterDir="false" />
@@ -59,6 +62,14 @@
       <option name="presentableId" value="Default" />
       <updated>1682361570360</updated>
     </task>
+    <task id="LOCAL-00001" summary="In process">
+      <created>1682522574856</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682522574856</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -71,5 +82,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="In process" />
+    <option name="LAST_COMMIT_MESSAGE" value="In process" />
   </component>
 </project>

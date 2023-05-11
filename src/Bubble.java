@@ -1,18 +1,57 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Bubble {
+public class Bubble{
     private int x;
     private int y;
-    private int dx;
-    private int dy;
+    private double dx;
+    private double dy;
+    private int xRange;
+    private int yRange;
+    private int xDest;
+    private int yDest;
     private String color;
     private Image bubbleImg;
     private boolean isPopped;
+    private BubblePopViewer bpv;
+    public static final int BUBBLE_WIDTH = 33;
+    public static final int BUBBLE_HEIGHT = 33;
 
-    public Bubble(String color, Image bubbleImg)
+    public Bubble(int x, int y, String color, Image bubbleImg)
     {
+        this.x = x;
+        this.y = y;
+        xRange = (this.getX() - Bubble.BUBBLE_WIDTH) + (Bubble.BUBBLE_WIDTH * 3);
+        yRange = (this.getY() - Bubble.BUBBLE_HEIGHT) + (Bubble.BUBBLE_HEIGHT * 3);
         this.color = color;
         this.bubbleImg = bubbleImg;
+        dx = 1;
+        dy = 1;
+    }
+
+    public int getxRange() {
+        return xRange;
+    }
+
+    public int getyRange() {
+        return yRange;
+    }
+
+    public int getxDest() {
+        return xDest;
+    }
+
+    public void setxDest(int xDest) {
+        this.xDest = xDest;
+    }
+
+    public int getyDest() {
+        return yDest;
+    }
+
+    public void setyDest(int yDest) {
+        this.yDest = yDest;
     }
 
     public int getX() {
@@ -31,19 +70,19 @@ public class Bubble {
         this.y = y;
     }
 
-    public int getDx() {
+    public double getDx() {
         return dx;
     }
 
-    public void setDx(int dx) {
+    public void setDx(double dx) {
         this.dx = dx;
     }
 
-    public int getDy() {
+    public double getDy() {
         return dy;
     }
 
-    public void setDy(int dy) {
+    public void setDy(double dy) {
         this.dy = dy;
     }
 
@@ -55,7 +94,7 @@ public class Bubble {
         this.color = color;
     }
 
-    public Image getBubbleImg() {
+    public Image getImg() {
         return bubbleImg;
     }
 
@@ -71,14 +110,19 @@ public class Bubble {
         isPopped = popped;
     }
 
-    public void shoot(int xdest, int ydest)
+    public void move()
     {
-        return;
+        x += dx;
+        if((x + BUBBLE_WIDTH > 500 && dx > 0)|| (x < 0 && dx < 0))
+        {
+            dx *= -1;
+        }
+        y -= dy;
     }
 
-    public void draw(Graphics g, int x, int y)
+    public void draw(Graphics g, BubblePopViewer bpv)
     {
-        return;
+        g.drawImage(bubbleImg, x, y, BUBBLE_WIDTH, BUBBLE_HEIGHT, bpv);
     }
 
 }
