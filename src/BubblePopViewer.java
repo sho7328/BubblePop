@@ -58,6 +58,13 @@ public class BubblePopViewer extends JFrame implements MouseListener, MouseMotio
             g.drawImage(playBG, 0, 20, WINDOW_WIDTH, WINDOW_HEIGHT, this);
             drawAllBubbles(g);
 
+            g.setColor(Color.blue);
+            g.setFont(new Font("Serif", Font.BOLD, 20));
+            g.drawString("Moves left:", 30, 650);
+            g.drawString("" + BP.getMovesLeft(), 55, 680);
+            g.drawString("Bubbles collected:", 320, 650);
+            g.drawString("" + BP.getScore(), 390, 680);
+
             if(BP.getCurrBubble().getX() < 170)
             {
                 BP.getCurrBubble().setX(170);

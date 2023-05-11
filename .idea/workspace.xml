@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ea1cdce-a80a-48cb-bcd9-104dba4f541c" name="Changes" comment="In process">
-      <change afterPath="$PROJECT_DIR$/Images/blue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/endBG.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/green.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/purple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/yellow.png" afterDir="false" />
+    <list default="true" id="7ea1cdce-a80a-48cb-bcd9-104dba4f541c" name="Changes" comment="Debugging pop();">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Arrow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bubble.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bubble.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BubblePop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BubblePop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BubblePopViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BubblePopViewer.java" afterDir="false" />
     </list>
@@ -69,7 +60,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682522574856</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Debugging pop();">
+      <created>1683782631463</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1683782631475</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -85,6 +83,18 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="In process" />
-    <option name="LAST_COMMIT_MESSAGE" value="In process" />
+    <MESSAGE value="Debugging pop();" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debugging pop();" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/BubblePop.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

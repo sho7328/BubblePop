@@ -7,7 +7,7 @@ public class BubblePop implements ActionListener {
     private Bubble[][] bubbles;
     private Bubble currBubble;
     private int score;
-    private final int MOVES_ALLOWED = 5;
+    private final int MOVES_ALLOWED = 35;
     private BubblePopViewer BPV;
     private Timer clock;
     private boolean gameOver;
@@ -62,7 +62,7 @@ public class BubblePop implements ActionListener {
 
     public void newCurrBubble()
     {
-        if(numCurrs <= MOVES_ALLOWED)
+        if(numCurrs < MOVES_ALLOWED)
         {
             int randNum = (int)(Math.random() * 5);
             currBubble = new Bubble(250, 700, BPV.getBubbleColors().get(randNum).getColor(), BPV.getBubbleColors().get(randNum).getImg());
@@ -101,14 +101,15 @@ public class BubblePop implements ActionListener {
         {
             for (int j = 0; j < bubbles[0].length; j++)
             {
-                if(bubbles[i][j] != null && cY + Bubble.BUBBLE_HEIGHT + 15 >= bubbles[i][j].getY() && cY <= bubbles[i][j].getY() + Bubble.BUBBLE_HEIGHT + 15)
+                if((bubbles[i][j] != null && !bubbles[i][j].isPopped()) && cY + Bubble.BUBBLE_HEIGHT + 15 >= bubbles[i][j].getY()
+                        && cY <= bubbles[i][j].getY() + Bubble.BUBBLE_HEIGHT + 15)
                 {
                     if(cX + Bubble.BUBBLE_WIDTH >= bubbles[i][j].getX() && cX <= bubbles[i][j].getX() + Bubble.BUBBLE_WIDTH)
                     {
                         currBubble.setX(bubbles[i][j].getX());
                         currBubble.setY(bubbles[i][j].getY() + Bubble.BUBBLE_HEIGHT);
                         bubbles[i + 1][j] = currBubble;
-//                        pop(i + 1, j, currBubble);
+                        pop(i + 1, j);
                         return true;
                     }
                 }
@@ -117,28 +118,63 @@ public class BubblePop implements ActionListener {
         return false;
     }
 
-    public void pop(int i, int j, Bubble bubble)
+    public void pop(int i, int j)
     {
         //Check if i and j are out of bounds and if it's been popped and if it's been visited already (set a bool for that)
-        if(i >= bubbles.length || i < 0 || j >= bubbles[0].length || j < 0 || bubble.isPopped() || bubbles[i][j] == null
+        if(i >= bubbles.length || i < 0 || j >= bubbles[0].length || j < 0 || bubbles[i][j] == null || bubbles[i][j].isPopped()
                 || !(bubbles[i][j].getColor().equals(currBubble.getColor())))
         {
             return;
         }
-        // upper bubble
-        pop(i + 1, j, bubbles[i + 1][j]);
-        // lower bubble
-        pop(i - 1, j, bubbles[i - 1][j]);
-        // left bubble
-        pop(i, j + 1, bubbles[i][j + 1]);
-        // right bubble
-        pop(i, j - 1, bubbles[i][j - 1]);
 
-        if(bubbles[i][j].getColor().equals(currBubble.getColor()))
+        if(bubbles[i][j] != currBubble && bubbles[i][j].getColor().equals(currBubble.getColor()))
         {
-            bubble.setPopped(true);
+            bubbles[i][j].setPopped(true);
+            currBubble.setPopped(true);
             score++;
             bubbles[i][j] = null;
+        }
+
+        // upper bubble
+        pop(i + 1, j);
+        // lower bubble
+        pop(i - 1, j);
+        // left bubble
+        pop(i, j + 1);
+        // right bubble
+        pop(i, j - 1);
+    }
+
+    public void removeSolo()
+    {
+        for(int i = 1; i < bubbles.length; i++)
+        {
+            for(int j = 1; j < bubbles[0].length; j++)
+            {
+                Bubble solo = bubbles[i][j];
+                if (solo != null && !solo.isPopped())
+                {
+                    int numSolo = 0;
+                    int numBubbles = 0;
+
+                    for(int row = i - 1; row < i + 1; row++)
+                    {
+                        for(int col = j - 1; col < j + 1; col++)
+                        {
+                            numBubbles++;
+                            if (bubbles[row][col] == null || bubbles[row][col].isPopped())
+                            {
+                                numSolo++;
+                            }
+                        }
+                    }
+                    if(numSolo == numBubbles - 1)
+                    {
+                        solo.setPopped(true);
+                        score++;
+                    }
+                }
+            }
         }
     }
 
@@ -191,12 +227,17 @@ public class BubblePop implements ActionListener {
         score += toAdd;
     }
 
+    public int getMovesLeft()
+    {
+        return MOVES_ALLOWED - numCurrs + 1;
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if (isTouching() == true)
         {
             // Pop all bubbles
             clock.stop();
+            removeSolo();
             BPV.repaint();
 
             newCurrBubble();
